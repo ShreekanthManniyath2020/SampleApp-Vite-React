@@ -1,20 +1,20 @@
-import React from 'react'
-import {Button, Stack} from 'react-bootstrap';
-import Search from './components/Search';
-import './App.css'
+import React from 'react';
+import { BrowserRouter , Route, Routes } from 'react-router-dom';
+import { Home } from './pages/Home';
+import { ProductPage } from './pages/ProductPage';
+
+
 const App = () => {
-  return (
-    <main>
-    <div className='pattern'></div>
-    <div className='wrapper'>
-      <header>
-        <img src="./hero.png" alt="Hero Banner" />
-        <h1>Find <span className='text-gradient'>Movies</span> You'll Love Without the Hassle</h1>
-      </header>
-      <Search/>
-    </div>
-    </main>
-  )
+  return (        
+<>    
+<BrowserRouter>     
+      <Routes>
+      <Route path="*" element={<Home />} />
+      <Route path="/product/:id" element={<ProductPage />} />      
+      </Routes>
+    </BrowserRouter>
+   </>     
+  );
 }
 
 export default App
