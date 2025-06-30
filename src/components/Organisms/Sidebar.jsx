@@ -1,48 +1,37 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-const SideNav = styled.aside`
-  width: 220px;
-  background: #f4f4f4;
+const SidebarWrapper = styled.aside`
+  width: 200px;
+  background: ${({ theme }) => theme.navBg};
   padding: 1rem;
-  height: calc(100vh - 60px); /* minus header */
-  position: fixed;
-  top: 60px;
-  left: 0;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: calc(100vh - 64px);
 `;
 
-const MenuItem = styled.div`
-  padding: 0.8rem 0;
+const SidebarItem = styled(Link)`
+  color: ${({ theme }) => theme.navText};
+  text-decoration: none;
   font-weight: 500;
-  cursor: pointer;
 
   &:hover {
-    background: #ddd;
-    padding-left: 10px;
-    transition: 0.2s;
+    color: #ffcc00;
   }
 `;
 
-// const Sidebar = () => (
-//   <SideNav>
-//     <MenuItem>🏠 Dashboard</MenuItem>
-//     <MenuItem>📦 Products</MenuItem>
-//     <MenuItem>📊 Reports</MenuItem>
-//     <MenuItem>⚙️ Settings</MenuItem>
-//   </SideNav>
-// );
-
-import React from 'react';
-
 const Sidebar = () => {
   return (
-    <div>
-      Side Bar
-    </div>
+    <SidebarWrapper>
+      <SidebarItem to="/">Dashboard</SidebarItem>
+      <SidebarItem to="/products">Products</SidebarItem>
+      <SidebarItem to="/about">About</SidebarItem>
+      <SidebarItem to="/services">Services</SidebarItem>
+      <SidebarItem to="/contact">Contact</SidebarItem>
+    </SidebarWrapper>
   );
-}
+};
 
 export default Sidebar;
-
-
