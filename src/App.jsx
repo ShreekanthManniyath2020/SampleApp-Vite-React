@@ -11,6 +11,7 @@ import Services from './pages/Services';
 import Contact from './pages/Contact';
 import styled from 'styled-components';
 import Products from './pages/Products';
+import ProductPage from './pages/ProductPage'
 
 const Layout = styled.div`
   display: flex;
@@ -39,6 +40,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<Products />} />
+              <Route path="/product/:id" element={<ProductPage />} />
               <Route path="/about" element={<About />} />
               <Route path="/services" element={<Services />} />
               <Route path="/contact" element={<Contact />} />
