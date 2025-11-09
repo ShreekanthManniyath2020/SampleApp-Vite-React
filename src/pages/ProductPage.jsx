@@ -2,15 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { api } from '../api';
 
-export const ProductPage = () => {
+const ProductPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    api.get(`/products/${id}`).then(res => setProduct(res.data));
+    api.get(`/products/${id}`).then(res => setProduct(res.data));    
   }, [id]);
 
   if (!product) return <div>Loading...</div>;
+  if (product) {
+    console.log("Rendering product:", product);
+  }
 
   return (
     <div style={{ padding: '2rem' }}>
@@ -23,3 +26,5 @@ export const ProductPage = () => {
     </div>
   );
 };
+
+export default ProductPage;
